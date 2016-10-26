@@ -26,5 +26,3 @@ MIT
 
 
 
-"# smart-mirror-pulip" 
-"# smart-mirror-pulip" 

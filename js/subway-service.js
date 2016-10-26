@@ -9,7 +9,7 @@
     service.stationrow = null;
 
     service.init = function(station){
-      return $http.get("http://openAPI.seoul.go.kr:8088/"+SUBWAY_API_KEY+"/xml/SearchInfoBySubwayNameService/1/5/"+station+"/").
+      return $http.get("http://openAPI.seoul.go.kr:8088/447245564861767234367845716c44/xml/SearchInfoBySubwayNameService/1/5/"+station+"/").
       then(function(response) {
         var x2js = new X2JS();
         var jsonData = x2js.xml_str2json(response.data);

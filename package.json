@@ -1,5 +1,5 @@
 {
-  "name": "smart-mirror-pulip",
+  "name": "smart-mirror",
   "version": "0.0.1",
   "description": "The fairest of them all",
   "main": "main.js",
@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/evancohen/smart-mirror/issues"
   },
-  "homepage": "https://github.com/evancohen/smart-mirror-pulip",
+  "homepage": "https://github.com/evancohen/smart-mirror",
   "devDependencies": {
     "install": "^0.6.1",
     "wiredep-cli": "^0.1.0",

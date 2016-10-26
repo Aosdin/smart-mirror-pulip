@@ -8,6 +8,7 @@
 
         service.init = function(geoposition) {
             geoloc = geoposition;
+            var FORCAST_API_KEY = b5b2c1a8b7e105610313d1021c6b37cf;
             return $http.jsonp('https://api.forecast.io/forecast/'+FORCAST_API_KEY+'/'+geoposition.coords.latitude+','+geoposition.coords.longitude+'?units=si&callback=JSON_CALLBACK').
                 then(function(response) {
                     console.debug(response)

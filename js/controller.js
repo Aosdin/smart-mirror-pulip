@@ -3,7 +3,7 @@
 
   function MirrorCtrl(AnnyangService, GeolocationService, WeatherService, MapService, SubwayService, YoutubeService, HueService, SoundCloudService,$scope, $timeout, $sce) {
     var _this = this;
-    var command = COMMANDS.en;
+    var command = COMMANDS.ko;
     var DEFAULT_COMMAND_TEXT = command.default;
     $scope.listening = false;
     $scope.debug = false;
@@ -145,30 +145,43 @@
 
       AnnyangService.addCommand(command.musicplay, function(track) {
         SoundCloudService.searchSoundCloud(track).then(function(response){
+          SC.stream('/tracks/' + response[0].id).then(function(player){
+            player.play();
+            sound = player;
+            playing = true;
+          });
+
           if (response[0].artwork_url){
-              $scope.scThumb = response[0].artwork_url.replace("-large.", "-t500x500.");
+            $scope.scThumb = response[0].artwork_url.replace("-large.", "-t500x500.");
           } else {
-              $scope.scThumb = 'http://i.imgur.com/8Jqd33w.jpg?1';
+            $scope.scThumb = 'http://i.imgur.com/8Jqd33w.jpg?1';
           }
-          $scope.scWaveform = response[0].waveform_url;
           $scope.scTrack = response[0].title;
           $scope.focus = "music";
-          SoundCloudService.play();
+          SoundCloudService.startVisualizer();
         });
       });
 
       AnnyangService.addCommand(command.musicstop, function() {
-        SoundCloudService.pause();
+        sound.pause();
+        SoundCloudService.stopVisualizer();
         $scope.focus = "default";
       });
 
       AnnyangService.addCommand(command.musicresume, function() {
-        SoundCloudService.play();
+        sound.play();
+        SoundCloudService.startVisualizer();
         $scope.focus = "music";
       });
       AnnyangService.addCommand(command.musicreplay, function() {
-        SoundCloudService.replay();
+        sound.seek(0);
+        sound.play();
+        SoundCloudService.startVisualizer();
         $scope.focus = "music";
+      });
+
+      AnnyangService.addCommand(command.musicstop, function() {
+        $scope.musicplay.pause();
       });
 
       AnnyangService.addCommand(command.playyoutube, function(term) {

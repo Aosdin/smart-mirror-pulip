@@ -33,10 +33,10 @@ var COMMANDS  = { "en" : {
   "ko" : {
     "voice" : "Korean Female",
     "default" : '"사용 가능한 질문" 이라 말해 보세요',
-    "hi" : '안녕 소은',
+    "hi" : '안녕, 플립!',
     "whatcanisay" : '사용 가능한 질문',
     "home" : '(집)(메인 화면)',
-    "sleep" : '잠자러가',
+    "sleep" : '그만할래',
     "wake" : '일어나',
     "debug" : '디버그 정보 보여 줘',
     "map" : '지도 보여 줘',

@@ -1,13 +1,18 @@
+/*
 @font-face {
     font-family: "HelveticaNeue-UltraLight";
-    src: url("../fonts/HelveticaNeue-UltraLight.ttf"); /* EOT file for IE */
-}
+    src: url("../fonts/HelveticaNeue-UltraLight.ttf"); /* EOT file for IE
+}*/
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 
 body {
-    background-color: red;
+    background-color: black;
     color: #fff;
+    font-family: 'Jeju Gothic', serif;
+    /*
     font-family: 'HelveticaNeue-UltraLight', 'Open Sans', sans-serif;
     font-weight: 300;
+    */
     position: relative;
 }
 
